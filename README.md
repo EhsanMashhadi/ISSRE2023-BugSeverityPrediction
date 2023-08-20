@@ -59,7 +59,7 @@ For Reproducibility only:
 This section is only set up the artifact and validate its general functionality based on a small example data (complete dataset for the classic models, but the first 50 rows for CodeBERT models).
 
 1. Clone the repository
-   - `git clone git@github.com:EhsanMashhadi/BugSeverityPrediction.git` 
+   - `git@github.com:EhsanMashhadi/ISSRE2023-BugSeverityPrediction.git` 
 2. Install dependencies:
   - `pip install pandas==1.4.2`
   - `pip install jira`
@@ -93,7 +93,7 @@ This section is only set up the artifact and validate its general functionality 
    
 ### Reproducibility Instructions:
 1. Clone the repository
-   - `git clone git@github.com:EhsanMashhadi/BugSeverityPrediction.git` 
+   - `git@github.com:EhsanMashhadi/ISSRE2023-BugSeverityPrediction.git` 
 2. Install dependencies (You may need to change the torch version for running on your GPU/CPU)
 
 **Note: If you want to rerun the experiments of this paper you can skip this section (recommended)**

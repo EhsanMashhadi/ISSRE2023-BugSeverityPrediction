@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'lib'
+    }
+}
+
+dependencies {
+    implementation 'com.github.javaparser:javaparser-symbol-solver-core:3.6.27'
+    implementation group: 'org.apache.commons', name: 'commons-math3', version: '3.0'
+    implementation 'io.reflectoring.diffparser:diffparser:1.4'
+    implementation group: 'com.opencsv', name: 'opencsv', version: '4.1'
+    implementation 'de.siegmar:fastcsv:2.1.0'
+    implementation files('lib/halstead-1.0.0.jar')
+    implementation files('lib/read-tse-1.0.0.jar')
+    implementation group: 'com.github.mauricioaniche', name: 'ck', version: '0.7.0'
+    implementation group: 'org.json', name: 'json', version: '20211205'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+}
+
+test {
+    useJUnitPlatform()
+}
