@@ -10,17 +10,22 @@ This artifact contains all data (including data gathering step), code, and scrip
 This folder contains all scripts and code required (specific to this apper) to re-run the training and testing our models (including classic models, CodeBERT, ConcatInline, and ConcatCLS). The structure of this folder is:
 
 ```
-+-- data (contains data and preprocessing step script)
-|   +-- preprocess.sh
-+-- dataset (contains dataset split after preprocessing)
++-- data (contains paper full dataset and preprocessing step script)
+|   +-- preprocess.sh (splitting dataset and scaling values)
++-- dataset (contains small subset of dataset after preprocessing for getting started section)
 +-- models
-|   +-- code_metrics (contains code for classic models)
+|   +-- code_metrics (contains code for training and testing our classic models)
 |      +-- train_test.sh (training and testing the models)
 |   +-- code_representation
 |      +-- codebert
-|          +-- train.sh (training the models)
-|          +-- inference.sh (testing the models)
-|   +-- evaluation (evaluation metrics)
+|          +-- CodeBertModel.py (code for CodeBERT model)
+|          +-- ConcatInline.py (code ConcatInline model)
+|          +-- ConcatCLS.py (code ConcatCLS model)
+|          +-- train.sh (script for training the models)
+|          +-- inference.sh (script for testing the models)
+|   +-- evaluation
+|      +-- evaluation.py (evaluation metrics)
++-- utils (constant file)
 ```
 
 #### data
@@ -55,19 +60,11 @@ For Getting Started:
 - CPU/RAM: There is no strict minimum on these.
 - Python: Python 3 is required.
 
-For *Reproducibility* only:
-- Java: Java 18 is required (**only for running data gathering step**).
-- Git: (**only for running data gathering step**).
-- SVN (**only for running data gathering step**).
-- [Defects4J](https://github.com/rjust/defects4j) (**only for running data gathering step**).
-- [Bugs.jar](https://github.com/bugs-dot-jar/bugs-dot-jar) (**only for running data gathering step**).
-
 ## Getting Started:
 This section is only set up the artifact and validate its general functionality based on a small example data (complete dataset for the classic models, but the first 50 rows for CodeBERT models).
 
 1. Clone the repository
-   - `git@github.com:EhsanMashhadi/ISSRE2023-BugSeverityPrediction.git` 
-
+   - `git@github.com:EhsanMashhadi/ISSRE2023-BugSeverityPrediction.git`
 
 2. Install dependencies (using `requirements.txt` file) or manually :
   - `pip install pandas==1.4.2`
@@ -104,14 +101,6 @@ This section is only set up the artifact and validate its general functionality 
 1. Clone the repository
    - `git@github.com:EhsanMashhadi/ISSRE2023-BugSeverityPrediction.git` 
 2. Install dependencies (You may need to change the torch version for running on your GPU/CPU)
-
-**Note: If you only want to re-run the experiments of this paper you can skip `Data Gathering` section below (recommended)**
-
-- **Data gathering**: All following should be installed completely and correctly to reproduce the dataset gathering step (this setup may take long time)
-   - Install Git (brew, apt, ... based on your OS)
-   - Install SVN (brew, apt, ... based on your OS)
-   - Install [Defects4J](https://github.com/rjust/defects4j) (Follow all the steps in the provided installation guide)
-   - Install [Bugs.jar](https://github.com/bugs-dot-jar/bugs-dot-jar) (You must install this in the `data_gathering` directory)
 
 - **Experiments**:
   -  It is better to install these dependencies on a virtual env (you can also use requirements.txt)
@@ -153,16 +142,6 @@ This section is only set up the artifact and validate its general functionality 
 4. `bash inference.sh` for evaluating the model with the `test` split
 5. Results are generated in the `log` folder
 
-### How to re-run the data gathering step?
-1. `cd ISSRE2023-BugSeverityPrediction/data_gathering/issue_scraper`
-2. `python main.py`
-
-For below steps it can easier to use `gradlew`or simply open by IntelliJ IDEA to run java files
-3. `cd ISSRE2023-BugSeverityPrediction/data_gathering/MetricsExtractor/src/main/java/software/ehsan/severityprediction/method_extractor`
-4. `run MethodExtractorMain.java`
-5. `cd ISSRE2023-BugSeverityPrediction/data_gathering/MetricsExtractor/src/main/java/software/ehsan/severityprediction/metric_extractor`
-6. `run MetricCalculatorMain.java`
-
 ### How to run with different config/hyperparameters?
    - You can change/add different hyperparameters/configs in `train.sh` and `inference.sh` files.
 
@@ -171,3 +150,23 @@ For below steps it can easier to use `gradlew`or simply open by IntelliJ IDEA to
 2. Assign the correct values for `CUDA_VISIBLE_DEVICES`, `gpu_rank`, and `world_size` based on your GPU numbers in all scripts.
 3. Run on CPU by removing the `gpu_rank`, and `world_size` options in all scripts.
 4. Refer to the [CodeBERT Repo](https://github.com/microsoft/CodeBERT) for finding common issue.
+
+
+### How to re-run the data gathering step  (out of paper scope)?
+
+Below tools should be installed and configured correctly, otherwise this step won't work. It may take long time to do this step and can be skipped (recommended).
+
+  - Java: Java 18 is required (**only for running data gathering step**).
+  - Git: (brew, apt, ... based on your OS)
+  - SVN: (brew, apt, ... based on your OS)
+  - [Defects4J](https://github.com/rjust/defects4j) (Follow all the steps in the provided installation guide).
+  - [Bugs.jar](https://github.com/bugs-dot-jar/bugs-dot-jar) (You must install this in the `data_gathering` directory).
+
+1. `cd ISSRE2023-BugSeverityPrediction/data_gathering/issue_scraper`
+2. `python main.py`
+
+For below steps it can easier to use `gradlew`or simply open by IntelliJ IDEA to run java files
+3. `cd ISSRE2023-BugSeverityPrediction/data_gathering/MetricsExtractor/src/main/java/software/ehsan/severityprediction/method_extractor`
+4. `run MethodExtractorMain.java`
+5. `cd ISSRE2023-BugSeverityPrediction/data_gathering/MetricsExtractor/src/main/java/software/ehsan/severityprediction/metric_extractor`
+6. `run MetricCalculatorMain.java`
