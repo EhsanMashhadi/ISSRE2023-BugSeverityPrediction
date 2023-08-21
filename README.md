@@ -1,5 +1,7 @@
 # BugSeverityPrediction
 
+[![DOI](https://zenodo.org/badge/680951811.svg)](https://zenodo.org/badge/latestdoi/680951811)
+
 ### Paper
 You can find the paper here: TBC
 
