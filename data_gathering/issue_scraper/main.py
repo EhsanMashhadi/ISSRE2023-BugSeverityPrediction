@@ -103,9 +103,9 @@ def scrape_bugs_jar_issues():
 
 
 if __name__ == '__main__':
-    # logger.info(msg="Defect4J issue scraper starts. It may take several minutes..."+"\n"+"-"*100)
-    # scrape_d4j_issues()
-    # unify_d4j_issues()
-    # logger.info("Bugs.jar issue scraper starts. It may take several minutes..."+"\n"+"-"*100)
-    # scrape_bugs_jar_issues()
+    logger.info(msg="Defect4J issue scraper starts. It may take several minutes..."+"\n"+"-"*100)
+    scrape_d4j_issues()
+    unify_d4j_issues()
+    logger.info("Bugs.jar issue scraper starts. It may take several minutes..."+"\n"+"-"*100)
+    scrape_bugs_jar_issues()
     checkout_projects()
