@@ -20,7 +20,7 @@ public class MethodExtractorMain {
 
     public static void main(String[] args) throws IOException {
         MethodExtractorMain methodExtractorMain = new MethodExtractorMain();
-//        methodExtractorMain.extractDefect4JMethods();
+        methodExtractorMain.extractDefect4JMethods();
         methodExtractorMain.extractBugJarMethods();
     }
 

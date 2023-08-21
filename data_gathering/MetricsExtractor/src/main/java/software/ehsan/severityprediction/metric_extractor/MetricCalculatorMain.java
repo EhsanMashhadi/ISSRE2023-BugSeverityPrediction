@@ -24,7 +24,7 @@ public class MetricCalculatorMain {
     public static void main(String[] args) throws IOException, URISyntaxException {
 
         MetricCalculatorMain mainClass = new MetricCalculatorMain();
-//        mainClass.calcD4JCodeMetrics();
+        mainClass.calcD4JCodeMetrics();
         mainClass.calcBugsJarCodeMetrics();
     }
 
