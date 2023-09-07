@@ -3,7 +3,7 @@
 [![DOI](https://zenodo.org/badge/680951811.svg)](https://zenodo.org/badge/latestdoi/680951811)
 
 ### Paper
-You can find the paper here: TBC
+You can find the paper here: https://arxiv.org/abs/2309.03044
 
 ## Artifact Description
 This artifact contains all data (including data gathering step), code, and scripts required to run the paper's experiment to reproduce the results. The structure of folders and files are:
