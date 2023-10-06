@@ -156,7 +156,7 @@ This section is only set up the artifact and validate its general functionality 
 
 ### How to re-run the data gathering step  (out of paper scope)?
 
-Below tools should be installed and configured correctly, otherwise this step won't work. It may take long time to do this step and can be skipped (recommended).
+The tools below should be installed and configured correctly, otherwise, this step won't work. It may take a long time to do this step and can be skipped (recommended).
 
   - Java: Java 18 is required (**only for running data gathering step**).
   - Git: (brew, apt, ... based on your OS)
@@ -168,7 +168,11 @@ Below tools should be installed and configured correctly, otherwise this step wo
 2. `python main.py`
 
 For below steps it can easier to use `gradlew`or simply open by IntelliJ IDEA to run java files
+
 3. `cd ISSRE2023-BugSeverityPrediction/data_gathering/MetricsExtractor/src/main/java/software/ehsan/severityprediction/method_extractor`
+
 4. `run MethodExtractorMain.java`
+
 5. `cd ISSRE2023-BugSeverityPrediction/data_gathering/MetricsExtractor/src/main/java/software/ehsan/severityprediction/metric_extractor`
+
 6. `run MetricCalculatorMain.java`
