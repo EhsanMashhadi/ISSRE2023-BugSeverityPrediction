@@ -3,18 +3,20 @@
 [![DOI](https://zenodo.org/badge/680951811.svg)](https://zenodo.org/badge/latestdoi/680951811)
 
 ### Paper
-You can find the paper here: https://arxiv.org/abs/2309.03044
+Preprint: https://arxiv.org/abs/2309.03044
 
-## Artifact Description
-This artifact contains all data (including data gathering step), code, and scripts required to run the paper's experiment to reproduce the results. The structure of folders and files are:
+Postprint: https://ieeexplore.ieee.org/document/10301266
+
+## Artifact Description | Paper earned all badges (Available, Reviewed, and Reproducible)
+This artifact contains all data (including the data gathering step), code, and scripts required to run the paper's experiment to reproduce the results. The structure of folders and files is as follows:
 
 ### `experiments` folder 
-This folder contains all scripts and code required (specific to this apper) to re-run the training and testing our models (including classic models, CodeBERT, ConcatInline, and ConcatCLS). The structure of this folder is:
+This folder contains all scripts and code required (specific to this paper) to re-run the training and testing of our models (including classic models, CodeBERT, ConcatInline, and ConcatCLS). The structure of this folder is:
 
 ```
 +-- data (contains paper full dataset and preprocessing step script)
 |   +-- preprocess.sh (splitting dataset and scaling values)
-+-- dataset (contains small subset of dataset after preprocessing for getting started section)
++-- dataset (contains a small subset of the dataset after preprocessing for the getting started section)
 +-- models
 |   +-- code_metrics (contains code for training and testing our classic models)
 |      +-- train_test.sh (training and testing the models)
@@ -36,14 +38,14 @@ The `data` folder contains bugs from Defects4tJ and Bugs.jar datasets. This fold
 Running this script using ```bash preprocessing.sh``` command generates 6 files containing `train`, `val`, `tests` splits in `jsonl` (compatible with CodeBERT experiments) and `csv` (compatible with source code metrics experiments) formats. 
 
 #### dataset
-Files available in the `dataset` folder represent data for getting started section (small subset of data). For reproducing paper result the generated files in `data` folder should be copied to the `dataset` folder that is used by the model training scripts. 
+Files available in the `dataset` folder represent data for the getting started section (small subset of data). For reproducing paper results the generated files in the `data` folder should be copied to the `dataset` folder that is used by the model training scripts. 
 
 #### models
 This folder contains all code and scripts for all of the experiments including classic models, CodeBERT models, ConcatInline, and ConcatCLS.
 
 
 ### `data_gathering` folder (out of paper scope):
-This folder contains all required code to gather the data including issue scraping, method extraction, and metric extraction. While this step is out of scope of this paper, however, the required step to reproduce the data is available in this instruction.
+This folder contains all required code to gather the data including issue scraping, method extraction, and metric extraction. While this step is out of this paper's scope, the required step to reproduce the data is available in this instruction.
 While there are many directories/files in this folder, the following tree shows the structure of 3 files that need to be run.
 ```
 +-- issue_scraper
@@ -58,12 +60,12 @@ While there are many directories/files in this folder, the following tree shows 
 ##  Environment Setup:
 For Getting Started:
 - Operating System: The provided artifact is tested on Linux (20.04.6 LTS) and macOS (Ventura 13.5).
-- GPU: It is better to have GPU for running experiments on GPU otherwise it may take long time.
+- GPU: It is better to have a GPU for running experiments on GPU otherwise it may take a long time.
 - CPU/RAM: There is no strict minimum on these.
 - Python: Python 3 is required.
 
 ## Getting Started:
-This section is only set up the artifact and validate its general functionality based on a small example data (complete dataset for the classic models, but the first 50 rows for CodeBERT models).
+This section only sets up the artifact and validates its general functionality based on a small example data (complete dataset for the classic models, but the first 50 rows for CodeBERT models).
 
 1. Clone the repository
    - `git@github.com:EhsanMashhadi/ISSRE2023-BugSeverityPrediction.git`
@@ -167,7 +169,7 @@ The tools below should be installed and configured correctly, otherwise, this st
 1. `cd ISSRE2023-BugSeverityPrediction/data_gathering/issue_scraper`
 2. `python main.py`
 
-For below steps it can easier to use `gradlew`or simply open by IntelliJ IDEA to run java files
+For the below steps, it can be easier to use `gradlew`or simply open by IntelliJ IDEA to run Java files
 
 3. `cd ISSRE2023-BugSeverityPrediction/data_gathering/MetricsExtractor/src/main/java/software/ehsan/severityprediction/method_extractor`
 
